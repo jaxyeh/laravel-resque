@@ -43,7 +43,7 @@ class ResqueQueue extends Queue {
 	 * @param  bool    $track
 	 * @return string
 	 */
-	public function push($job, $data = [], $queue = null, $track = false)
+	public function push($job, $data = array(), $queue = null, $track = false)
 	{
 		$queue = (is_null($queue) ? $job : $queue);
 		return Resque::enqueue($queue, $job, $data, $track);
@@ -58,7 +58,7 @@ class ResqueQueue extends Queue {
 	 * @param  string  $queue
 	 * @return void
 	 */
-	public function later($delay, $job, $data = [], $queue = null)
+	public function later($delay, $job, $data = array(), $queue = null)
 	{
 		$queue = (is_null($queue) ? $job : $queue);
 
